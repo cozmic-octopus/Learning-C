@@ -8,12 +8,15 @@ int main(void)
     printf("Program zwraca n-tą liczbę pierwszą.\nPodaj n\n");
     int n;
     scanf("%d", &n);
+    if(n < 1)
+    {
+        printf("Niepoprawne wejście.\n");
+    }
     int liczba = 2;
     for(int licznik = 0; licznik < n; liczba++)
     {
         if(liczpie(liczba)==1)
         {
-            printf("%d\n", liczba);
             licznik++;
         }
         
@@ -22,7 +25,11 @@ int main(void)
     return 0;    
 }
 int liczpie(int liczba)
-{
+{   
+    if(liczba < 2)
+    {
+        return 0;
+    }
     for(int i = 2; i < liczba; i++)
     {
         if(liczba%i == 0)
