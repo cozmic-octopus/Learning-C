@@ -1,16 +1,17 @@
 #include<stdio.h>
 /*Program generuje n-tą liczbę z ciagu fibbonaciego*/
-int fibo(int n);
+long long fiboitr(long long n);
+long long fibo(long long n);
 int main(void)
 {
-    int n;
-    printf("Podaj liczbę n");
-    scanf("%d", &n);
-    printf("N-ta liczba ciagu fibonacciego to %d", fibo(n));
+    long long n;
+    printf("Podaj liczbę n\n");
+    scanf("%lld", &n);
+    printf("N-ta liczba ciagu fibonacciego to %lld.", fiboitr(n));
     return 0;
     
 }
-int fibo(int n)
+long long fibo(long long n)
 {
     if(n==0)
     {
@@ -22,8 +23,23 @@ int fibo(int n)
     }
     else
     {
-        int fib = fibo(n-1)+fibo(n-2);
+        long long fib = fibo(n-1)+fibo(n-2);
         return fib;
     }
     
+}
+long long fiboitr(long long n)
+{
+    if(n==1||n==2){
+        return 1;
+    }
+    long long a=0, b=1;
+    long long fi;
+    for(long long i=1; i<n; i++)
+    {
+        b = b + a;
+        a = b - a;
+
+    }
+    return b;
 }
